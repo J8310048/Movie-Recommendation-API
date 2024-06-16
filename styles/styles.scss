@@ -10,6 +10,11 @@
   animation-duration: 1s;
 }
 
+//this animation is for when similar movies dropdown when you press the button
+@mixin slideInDown{
+  animation: animate__slideInDown;
+}
+
 html {
   background-color: rgb(55, 55, 55);
   color: white;
