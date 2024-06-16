@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Rico</title>
+</head>
+<body>
+    <p>HERE ARE SOME MOVIES
+    </p>
+    <script>
+        const requestOptions = {
+  method: "GET"
+};
+
+fetch("http://127.0.0.1:3000/", requestOptions)
+  .then((response) => response.json())
+  .then((json) => console.log(json))
+  .catch((error) => console.error(error));
+    </script>
+</body>
+</html>
