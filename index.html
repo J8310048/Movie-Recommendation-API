@@ -29,6 +29,7 @@
                 method: "GET"
             };
 
+            //What's happening here is the fetch url is retrieving 
             fetch(`http://127.0.0.1:3000/search?query=${encodeURIComponent(searchInput)}`, requestOptions)
                 .then((response) => response.json())
                 .then((json) => {
@@ -50,6 +51,7 @@
                 .catch((error) => console.error(error));
         });
 
+        // This block of code is used to fetch similar movies when you click the "See Similar Movies" button on the page.
         function showSimilarMovies(movieId) {
             const requestOptions = {
                 method: "GET"
@@ -69,6 +71,7 @@
                         </div>
                         `;
                     }
+                    // 
                     document.getElementById(movieId).innerHTML = output;
                 })
                 .catch((error) => console.error(error));

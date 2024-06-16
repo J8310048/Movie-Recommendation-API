@@ -9,6 +9,7 @@ header {
     margin-top: 2%;
 }
 
+// this puts a border around each movie item
 .products-container {
     display: flex;
     flex-wrap: wrap;
@@ -37,10 +38,6 @@ header {
     border: none;
     border-radius: 30px;
     padding: 15px;
-  }
-
-  .similarMovie {
-    text-wrap: wrap;
   }
 
   #similarMoviePoster {
