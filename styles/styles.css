@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+  border: 2px black solid;
+  padding: 1%;
+}
+.item #movieName {
+  position: relative;
+  left: 40%;
+}
+
+img {
+  width: 20vw;
+  height: 30vw;
+}
+
+#showSimilar {
+  margin: 20px 50px;
+  border: none;
+  border-radius: 30px;
+  padding: 15px;
+}
+
+.similarMovie {
+  text-wrap: wrap;
+}
+
+#similarMoviePoster {
+  width: 10vw;
+  height: 15vw;
+}/*# sourceMappingURL=styles.css.map */

@@ -3,33 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Movie Rico</title>
 </head>
 <body>
-    <p>HERE ARE SOME MOVIES
-    </p>
-    <div id="products" class="products-container"></div>
-    <script>
-        const requestOptions = {
-  method: "GET"
-};
+    <header>
+        <h1 id="title">MOVIE RECOMMENDATIONS</h1>
 
-fetch("http://127.0.0.1:3000/", requestOptions)
-  .then((response) => response.json())
-  .then((json) => {
-    console.log(json)
-    let products = json.results;
-        let output = "";
-        for (let item of products) { //this for loop is simply saying, "for every item, this html code will generate to display the information"
-            output += `
-            <div class="item">
-                <p id="cameraName">${item.title}</p>
-            </div>
-            `;
+        <form id="movieForm">
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="search">
+            <input type="submit" value="Submit">
+        </form>
+    </header>
+
+    <div id="products" class="products-container"></div>
+
+    <script>
+        document.getElementById('movieForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            const searchInput = document.getElementById('search').value; // Get the input value
+
+            const requestOptions = {
+                method: "GET"
+            };
+
+            fetch(`http://127.0.0.1:3000/search?query=${encodeURIComponent(searchInput)}`, requestOptions)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    let products = json.results;
+                    let output = "";
+                    for (let item of products) { 
+                        output += `
+                        <div class="item">
+                            <p id="movieName">${item.title}</p>
+                            <img src="https://image.tmdb.org/t/p/w440_and_h660_face${item.poster_path}" alt="${item.title}"/>
+                            <button id="showSimilar" onclick="showSimilarMovies(${item.id})">Show me similar movies</button>
+                            <div id="${item.id}"></div>
+                        </div>
+                        `;
+                    }
+                    document.getElementById("products").innerHTML = output;
+                })
+                .catch((error) => console.error(error));
+        });
+
+        function showSimilarMovies(movieId) {
+            const requestOptions = {
+                method: "GET"
+            };
+
+            fetch(`http://127.0.0.1:3000/similar?movie_id=${encodeURIComponent(movieId)}`, requestOptions)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    let products = json.results;
+                    let output = "<h1>Similar Movies</h1>";
+                    for (let item of products) { 
+                        output += `
+                        <div class="similarMovie">
+                            <p id="movieName">${item.title}</p>
+                            <img id="similarMoviePoster" src="https://image.tmdb.org/t/p/w440_and_h660_face${item.poster_path}" alt="${item.title}"/>
+                        </div>
+                        `;
+                    }
+                    document.getElementById(movieId).innerHTML = output;
+                })
+                .catch((error) => console.error(error));
         }
-        document.getElementById("products").innerHTML = output;
-  })
-  .catch((error) => console.error(error));
     </script>
 </body>
 </html>
