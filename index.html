@@ -8,6 +8,7 @@
 <body>
     <p>HERE ARE SOME MOVIES
     </p>
+    <div id="products" class="products-container"></div>
     <script>
         const requestOptions = {
   method: "GET"
@@ -15,7 +16,19 @@
 
 fetch("http://127.0.0.1:3000/", requestOptions)
   .then((response) => response.json())
-  .then((json) => console.log(json))
+  .then((json) => {
+    console.log(json)
+    let products = json.results;
+        let output = "";
+        for (let item of products) { //this for loop is simply saying, "for every item, this html code will generate to display the information"
+            output += `
+            <div class="item">
+                <p id="cameraName">${item.title}</p>
+            </div>
+            `;
+        }
+        document.getElementById("products").innerHTML = output;
+  })
   .catch((error) => console.error(error));
     </script>
 </body>
