@@ -10,6 +10,7 @@
     <header>
         <h1 id="title">MOVIE RECOMMENDATIONS</h1>
 
+        <!-- this is the form used to search for movies -->
         <form id="movieForm">
             <label for="search">Search:</label>
             <input type="text" id="search" name="search">
@@ -17,6 +18,7 @@
         </form>
     </header>
 
+    <!-- this is where all the suggestions populate similar to how the e-commerce website worked -->
     <div id="products" class="products-container"></div>
 
     <script>
@@ -29,7 +31,7 @@
                 method: "GET"
             };
 
-            //What's happening here is the fetch url is retrieving 
+            //What's happening here is whenever you type something in the form above (lines 14-18), the value will get put through this fetch url and generate suggestions on the website based on what you typed.
             fetch(`http://127.0.0.1:3000/search?query=${encodeURIComponent(searchInput)}`, requestOptions)
                 .then((response) => response.json())
                 .then((json) => {
