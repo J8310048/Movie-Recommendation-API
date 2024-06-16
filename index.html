@@ -14,7 +14,7 @@
         <form id="movieForm">
             <label for="search">Search:</label>
             <input type="text" id="search" name="search">
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" id="submit">
         </form>
     </header>
 
@@ -42,7 +42,7 @@
                         output += `
                         <div class="item">
                             <p id="movieName">${item.title}</p>
-                            <img src="https://image.tmdb.org/t/p/w440_and_h660_face${item.poster_path}" alt="${item.title}"/>
+                            <img id="mainPoster" src="https://image.tmdb.org/t/p/w440_and_h660_face${item.poster_path}" alt="${item.title}"/>
                             <button id="showSimilar" onclick="showSimilarMovies(${item.id})">Show me similar movies</button>
                             <div id="${item.id}"></div>
                         </div>

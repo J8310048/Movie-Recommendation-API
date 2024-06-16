@@ -1,46 +1,76 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+html {
+  background-color: rgb(55, 55, 55);
+  color: white;
+}
+
+//This aligns the search bar and text at the center
 header {
     text-align: center;
     margin-top: 2%;
+    #search {
+      padding: 0.5% 5%;
+    }
+    #submit {
+      padding: 0.5% 2%;
+    }
 }
 
-
+//this centers all the search results
 .products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
+  // this styles every movie time that is generated in the searchbar
   .item {
     display: flex;
     flex-direction: column;
     margin: 10%;
     border: 2px black solid;
+    border-radius: 20px;
+    background-color: orange;
     padding: 1%;
     #movieName {
         position: relative;
         left: 40%;
     }
+
+    // this styles the photos for the movie results 
+    #mainPoster {
+      width: 20vw;
+      height: 30vw;
+      border-radius: 30px;
+    }
+  
+    // this styles the similar movies button 
+    #showSimilar {
+      margin: 20px 50px;
+      border: none;
+      padding: 15px;
+      border-radius: 30px;
+    }
+    #showSimilar:hover {
+      background-color: gray;
+      cursor: pointer;
+      }
+
   }
 
-  img {
-    width: 20vw;
-    height: 30vw;
+  .similarMovie {
+    // this hides any text that bleeds outside of the border
+  overflow-x: hidden;
+    // this styles the movie poster for the similar movies
+#similarMoviePoster {
+  width: 5vw;
+  height: 7vw;
+  border-radius: 30px;
+}
   }
 
-  #showSimilar {
-    margin: 20px 50px;
-    border: none;
-    border-radius: 30px;
-    padding: 15px;
-  }
-
-  #similarMoviePoster {
-    width: 5vw;
-    height: 7vw;
-  }
