@@ -4,6 +4,11 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+header {
+  text-align: center;
+  margin-top: 2%;
+}
+
 .products-container {
   display: flex;
   flex-wrap: wrap;
@@ -39,6 +44,6 @@ img {
 }
 
 #similarMoviePoster {
-  width: 10vw;
-  height: 15vw;
+  width: 5vw;
+  height: 7vw;
 }/*# sourceMappingURL=styles.css.map */
