@@ -7,6 +7,8 @@
 html {
   background-color: rgb(55, 55, 55);
   color: white;
+  animation: fadeInLeft;
+  animation-duration: 1s;
 }
 
 header {
@@ -27,6 +29,7 @@ header #submit {
 }
 
 .item {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   margin: 10%;
@@ -34,6 +37,8 @@ header #submit {
   border-radius: 20px;
   background-color: orange;
   padding: 1%;
+  animation: fadeInLeft;
+  animation-duration: 1s;
 }
 .item #movieName {
   position: relative;
@@ -62,4 +67,41 @@ header #submit {
   width: 5vw;
   height: 7vw;
   border-radius: 30px;
+}
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  .item {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 8%;
+    border: 2px black solid;
+    border-radius: 20px;
+    background-color: orange;
+    padding: 5%;
+    animation: fadeInLeft;
+    animation-duration: 1s;
+  }
+  .item #mainPoster {
+    width: 40vw;
+    height: 50vw;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 425px) {
+  .item {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 8%;
+    border: 2px black solid;
+    border-radius: 20px;
+    background-color: orange;
+    padding: 5%;
+    animation: fadeInLeft;
+    animation-duration: 1s;
+  }
+  .item #mainPoster {
+    width: 40vw;
+    height: 50vw;
+  }
 }/*# sourceMappingURL=styles.css.map */
