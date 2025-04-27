@@ -4,7 +4,7 @@
 
 This is a Movie Recommendations API where when you type a movie keyword, similar movies will generate. To run the API:
 
-- run the command nodemon express-server.js in the terminal
+- run the command npx nodemon in the terminal
 
 Afterwards, type a suggestion in the search toolbar and you'll see similar movies come up.
 
